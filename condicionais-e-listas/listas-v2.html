@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(c, index) in cores">{{ index }}) {{ c }}</li>
+        </ul>
+    </div> 
+</body>
+<style>ul{list-style-type: none;}</style>
+<script>
+new Vue({
+    el: '#app',
+    data: {
+       cores: ['vermelho','amarelo','verde','azul'],
+       pessoas: [
+           {nome: 'Ana', idade: 26, peso: 59},
+           {nome: 'Guilher', idade: 22, peso: 89}
+       ]
+    },
+    
+})
+</script>
+</html>

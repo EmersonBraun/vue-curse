@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="pessoa in pessoas">
+                <div v-for="(valor, chave, index) in pessoa">
+                    {{ index }}.{{ chave }} =>{{ valor }}
+                </div>
+            </li>
+        </ul>
+        <hr>
+        <span v-for="n in 10">{{ n }}</span>
+        
+    </div> 
+</body>
+
+<script>
+new Vue({
+    el: '#app',
+    data: {
+       cores: ['vermelho','amarelo','verde','azul'],
+       pessoas: [
+           {nome: 'Ana', idade: 26, peso: 59},
+           {nome: 'Guilherme', idade: 22, peso: 89}
+       ]
+    },
+    
+})
+</script>
+
+<style>
+ul{
+    list-style-type: none;
+}
+h1, p{
+    display: inline;
+}
+</style>
+</html>

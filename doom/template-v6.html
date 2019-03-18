@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-once>{{ titulo }}</p>
+        <p>{{ saudacao() }}</p>
+        <a :href="link">Google</a>
+        <hr>
+        <p v-html="linkHtml"></p>
+    </div> 
+</body>
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        titulo: 'Curso VueJS',
+        link: 'http://google.com.br',
+        linkHtml: '<a href="http://google.com.br">Google</a>'
+    },
+    methods: {
+        saudacao(){
+            this.titulo = 'bom dia'
+            return this.titulo
+        }
+    },
+})
+</script>
+</html>
