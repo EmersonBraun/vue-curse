@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,600" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue"></script>
+    <title>Matador de monstros</title>
+</head>
+<body>
+    <div id="app">
+        <div class="panel">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 offset-md-4">
+                        <h1>Jogador</h1>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="progress" style="height: 30px;">
+                                <div class="progress-bar" role="progressbar" 
+                                :style="{width: playerLife +'%'}" 
+                                :class="playerLife > 20 ? 'bg-success' : 'bg-danger'"
+                                aria-valuemin="0" aria-valuemax="100">{{ playerLife }}%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-4 offset-md-4">
+                        <h1>Monstro</h1>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="progress" style="height: 30px;">
+                                <div class="progress-bar" role="progressbar" 
+                                :style="{width: monsterLife + '%'}" 
+                                :class="monsterLife > 20 ? 'bg-success' : 'bg-danger'"
+                                aria-valuemin="0" aria-valuemax="100">{{ monsterLife }}%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div v-if="hasResult" class="panel result text-center">
+            <h1 v-if="monsterLife <= 0">Você ganhou!!! <i class="em em-smiley"></i></h1>
+            <h1 v-else>Você perdeu!!! <i class="em em-cry"></i></h1>
+        </div>
+        <div class="panel buttons">
+            <div v-if="gameover" class="row">
+                <button  class="btn btn-primary btn-block text-uppercase" @click="newGame">Inicar Jogo</button>
+            </div>
+            <div v-else class="row">
+                <div class="col">
+                    <button  class="btn btn-warning btn-block text-uppercase" @click="attack(false)">Ataque </button>
+                </div>
+                <div class="col">
+                    <button  class="btn btn-success btn-block text-uppercase" @click="attack(true)">Ataque crítico</button>
+                </div>
+                <div class="col">
+                    <button  class="btn btn-primary btn-block text-uppercase" @click="healAndHurt">Cura</button>
+                </div>
+                <div class="col">
+                    <button  class="btn btn-danger btn-block text-uppercase" @click="restart">Desistir</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel logs">4</div>
+    </div> 
+</body>
+<script src="app.js"></script>
+</html>
