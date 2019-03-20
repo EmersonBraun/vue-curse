@@ -67,7 +67,13 @@
                 </div>
             </div>
         </div>
-        <div class="panel logs">4</div>
+        <div v-if="logs.length" class="panel logs">
+            <div v-for="log in logs">
+                <div class="alert" role="alert" :class="log.cls">
+                    {{ log.text }}
+                </div>
+            </div>
+        </div>
     </div> 
 </body>
 <script src="app.js"></script>
