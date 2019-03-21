@@ -62,6 +62,7 @@ new Vue({
         hasResult(value){
             if(value){
                 this.gameover = true
+                this.logs = []
             }
         }
     },
