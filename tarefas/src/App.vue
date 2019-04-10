@@ -1,12 +1,25 @@
 <template>
 	<div id="app">
-		<h1>Tarefas</h1>
-		<TaskProgress :progress="progress"/>
-		<NewTask @taskAdded="addTask"/>
-		<taskGrid 
-		@taskDeleted="deleteTask"
-		@taskStateChanged="changeTask"
-		:tasks="tasks"/>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="container">
+					<h1>Tarefas</h1>
+				</div>
+				<div class="container">
+					<TaskProgress :progress="progress"/>
+				</div>
+				<div class="container">
+					<NewTask @taskAdded="addTask"/>
+				</div>
+				<div class="container">
+					<taskGrid 
+					@taskDeleted="deleteTask"
+					@taskStateChanged="changeTask"
+					:tasks="tasks"/>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 </template>
 
@@ -69,14 +82,6 @@ export default {
 		color: #FFF;
 	}
 
-	#app {
-		display: flex;
-		flex: 1;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-	}
 
 	#app h1 {
 		margin-bottom: 5px;

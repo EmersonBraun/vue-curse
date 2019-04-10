@@ -24,6 +24,7 @@
 
 <style scoped>
     .new-task{
+        width: 100%;
         margin: 35px;
     }
     .form-element{
@@ -34,12 +35,13 @@
         padding: 5px 10px 8px;
     }
     input.form-element{
-        width: 500px;
+        width: 80%;
         background-color: #FFF2;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
     }
     button.form-element{
+        width: 10%;
         background-color: #007bff;
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;

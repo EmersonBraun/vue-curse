@@ -1,7 +1,7 @@
 <template>
     <div 
     @click="$emit('taskStateChanged', task)"
-    class="col-md-3 card task" :class="stateClass">
+    class="col-md-12 card task" :class="stateClass">
         <div class="card-head">
             <span @click.stop="$emit('taskDeleted',task)" class="close">x</span>
         </div>
@@ -28,17 +28,7 @@
 </script>
 
 <style scoped>
-    .task {
-        box-sizing: border-box;
-        min-width: 200px;
-        height: 100px;
-        padding: 10px;
-        border-radius: 8px;
-        font-size: 1.5rem;
-        font-weight: 300;
-        cursor: pointer;
-        user-select: none;
-    }
+    
     .bg-danger{
         border-left: 12px solid #b73229;
     }

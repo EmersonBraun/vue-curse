@@ -16,7 +16,7 @@
 <style scoped>
     .progress{
         background-color: #DDD2;
-        width: 80%;
+        width: 100%;
         height: 50px;
     }
 </style>
