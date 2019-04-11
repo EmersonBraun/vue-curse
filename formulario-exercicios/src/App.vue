@@ -114,7 +114,7 @@ export default {
 	},
 	methods: {
 		enviar(){
-			this.enviado =true
+			this.enviado = true
 		}
 	},
 }

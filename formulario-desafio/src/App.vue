@@ -2,7 +2,7 @@
 	<div id="app">
 		<h1>Formulário Desafio</h1>
 		<div class="conteudo">
-			<form class="painel">
+			<form v-if="!enviado" class="painel">
 				<div class="cabecalho">Formulário</div>
 				<!-- Exercicio 01 -->
 				<!-- Criar uma formulário de registro -->
@@ -10,18 +10,33 @@
 				<!-- Email -->
 				<!-- Senha -->
 				<!-- Armazenar Dados? (Sim/Não) -->
+				<NomeCompleto v-model="nomeCompleto"/>
+				<Rotulo nome="Email">
+					<input v-model="dados.email" type="text">
+				</Rotulo>
+				<Rotulo nome="Senha">
+					<input v-model="dados.senha" type="password">
+				</Rotulo>
+				<Rotulo nome="Armazenar Dados? (Sim/Não)">
+					<Escolha v-model="dados.escolha"/>
+				</Rotulo>
 
 				<!-- Exercicio 02 -->
 				<!-- Só mostrar o fomulário de não tiver sido submetido -->
 				<!-- Mostrar a área de Resultado apenas quando o formulário for submetido -->
-				
+				<button @click.prevent="enviar">Enviar</button>
 				<!-- Exercicio 03 -->
 				<!-- Crie um componente personalizado NomeCompleto -->
 				<!-- Esse componente deve receber Nome e Sobrenome -->
 			</form>
-			<div class="painel">
+			<div v-else class="painel">
 				<div class="cabecalho">Resultado</div>
-
+					<p>Nome: {{ nomeCompleto.nome }}</p>
+					<p>Sobrenome: {{ nomeCompleto.sobrenome }}</p>
+					<p>Email: {{ dados.email }}</p>
+					<p>Senha: {{ dados.senha }}</p>
+					<p>Escolha: {{ dados.escolha }}</p>
+					<button @click.prevent="novo">Novo envio</button>
 			</div>
 		</div>
 	</div>
@@ -29,10 +44,28 @@
 
 <script>
 import Rotulo from './components/Rotulo.vue'
+import Escolha from './components/Escolha.vue'
+import NomeCompleto from './components/NomeCompleto.vue'
 
 export default {
 	name: 'app',
-	components: { Rotulo }
+	components: { Rotulo, Escolha, NomeCompleto },
+	data() {
+		return {
+			dados: {},
+			nomeCompleto: {},
+			enviado: false
+		}
+	},
+	methods: {
+		enviar(){
+			this.enviado = true
+		},
+		novo(){
+			this.enviado = false
+			this.dados = {}
+		}
+	},
 }
 </script>
 
@@ -74,7 +107,7 @@ body {
 	font-size: 1.4rem;
 }
 
-#app form button {
+button {
 	float: right;
 	margin: 10px 0px;
 	padding: 10px 20px;
